@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './Business.css';
 
 var businessPlaceholder = {
     imageSrc: 'https://ep1.pinkbike.org/files/logo/directory/11000/11019_original.jpg',
@@ -28,7 +29,7 @@ class Business extends React.Component {
                         <p>{businessPlaceholder.state}</p>
                     </div>
                     <div className="Business-reviews">
-        <h3>{businessPlaceholder.category}</h3>
+                        <h3>{businessPlaceholder.category}</h3>
                         <h3 className="rating">{businessPlaceholder.rating + 'stars'}</h3>
                         <p>{businessPlaceholder.reviewCount + 'reviews'}</p>
                     </div>
@@ -37,3 +38,5 @@ class Business extends React.Component {
         );
     }
 }
+
+export default Business;
