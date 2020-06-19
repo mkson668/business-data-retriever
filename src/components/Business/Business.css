@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     width: 16.66rem;
     margin: 0 .5rem 2.3rem .5rem;
 }
 
+/* for all className with image-container under the parent className Business (Without comma is different from comma) */
 .Business .image-container {
     height: 16.66rem;
     margin-bottom: 1rem;

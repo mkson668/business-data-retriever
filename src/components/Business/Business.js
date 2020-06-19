@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Business.css';
 
+// temporary place holder for all Business venues
 var businessPlaceholder = {
     imageSrc: 'https://ep1.pinkbike.org/files/logo/directory/11000/11019_original.jpg',
     name: 'Bicicletta',
