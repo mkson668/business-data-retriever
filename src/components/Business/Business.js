@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './Business.css';
 
 // temporary place holder for all Business venues
@@ -20,19 +19,19 @@ class Business extends React.Component {
         return (
             <div className="Business">
                 <div className="image-wrapper">
-                    <img className="image-in-wrapper" src={businessPlaceholder.imageSrc} alt='' />
+                    <img className="image-in-wrapper" src={this.props.imageSrc} alt='' />
                 </div>
-                <h2>{businessPlaceholder.name}</h2>
+                <h2>{this.props.name}</h2>
                 <div className="Business-information">
                     <div className="Business-address">
-                        <p>{businessPlaceholder.address}</p>
-                        <p>{businessPlaceholder.city}</p>
-                        <p>{businessPlaceholder.state}</p>
+                        <p>{this.props.address}</p>
+                        <p>{this.props.city}</p>
+                        <p>{this.props.state}</p>
                     </div>
                     <div className="Business-reviews">
-                        <h3>{businessPlaceholder.category}</h3>
-                        <h3 className="rating">{businessPlaceholder.rating + ' stars'}</h3>
-                        <p>{businessPlaceholder.reviewCount + ' reviews'}</p>
+                        <h3>{this.props.category}</h3>
+                        <h3 className="rating">{this.props.rating + ' stars'}</h3>
+                        <p>{this.props.reviewCount + ' reviews'}</p>
                     </div>
                 </div>
             </div>
