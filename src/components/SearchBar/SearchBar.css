@@ -5,7 +5,7 @@
     background-image: url('./Resources/normal-background-blur.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 40rem;
+    height: 35.6rem;
 }
 
 .SearchBar-sort-options ul {
@@ -28,17 +28,22 @@
     text-align: center;
     font-weight: 200;
     font-size: 1.5rem;
-    transition: color .45s;
+    transition: color .5s;
+}
+
+.SearchBar-sort-options li.active {
+    color: #5dc728;
+    border-bottom: 1px solid #5dc728;
 }
 
 .SearchBar-sort-options li:hover {
-    color: #70dd27;
+    color: #5dc728;
+    border-bottom: 1px solid #5dc728;
 }
 
-.SearchBar-sort-options li.active,
-.SearchBar-sort-options li.active:hover {
-    border: 1px solid #ca720d;
-    color: #ca720d;
+.SearchBar-sort-options li:active {
+    color: #184601;
+    border-bottom: 1px solid #184601;
 }
 
 .SearchBar-fields {
@@ -48,13 +53,20 @@
 }
 
 .SearchBar-fields input {
-    width: 21rem;
+    width: 12rem;
     padding: .66rem 1rem;
     margin-right: 2.22rem;
     border: 1px solid #fff;
     border-radius: 4px;
     font-size: .77rem;
     font-weight: 500;
+    -webkit-transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+}
+
+.SearchBar-fields input:focus {
+    width: 20rem;
+    background-color: rgb(236, 226, 226);
 }
 
 .SearchBar-fields input:last-child {
@@ -65,8 +77,9 @@
     text-align: center;
 }
 
-.SearchBar-submit a {
+.SearchBar-submit button {
     border-radius: 3px;
+    border: none;
     padding: .82rem 1.9rem;
     background-color: #cca353;
     color: #ffffff;
@@ -74,7 +87,7 @@
     transition: background-color .5s;
 }
 
-.SearchBar-submit a:hover {
+.SearchBar-submit button:hover {
     cursor: pointer;
     background-color: #a7874b;
 }

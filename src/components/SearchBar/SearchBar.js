@@ -2,25 +2,71 @@ import React from 'react';
 import './SearchBar.css';
 
 /* https://www.yelp.com/developers/documentation/v3/business_search */
-const sortByObjects = {
-    'Best Match': 'best_match',
-    'Highest Rated': 'rating',
-    'Most Reviewed': 'review_count'
-};
 
 class SearchBar extends React.Component {
-    renderSortByOptions() {
-        var sortKeys = Object.keys(sortByObjects);
-        /* recall that the key attribute acts as a unique identifier for the list item such that
-        ReactDOM knows what has changed and to only render the new part */
-        return sortKeys.map((key) => {
-            // get values of object by calling each key;
-            let sortValue = sortByObjects[key];
-            return (
-                <li key={sortValue}>{key}</li>
-            );
-        });
+    constructor(props) {
+        super(props);
+        this.state = {  
+            term:     '',
+            location: '',
+            sortBy:   'best_match'};
+        this.sortByOptions = {
+            'Best Match': 'best_match',
+            'Highest Rated': 'rating',
+            'Most Reviewed': 'review_count'
+        };
+        this.handleTermChange = this.handleTermChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
+        this.handleSortByChange = this.handleSortByChange.bind(this);
     };
+
+    getSortByClass(sortByOption) {
+        if (this.state.sortBy === sortByOption) {
+            return 'active';
+        } 
+        return '';
+    };
+
+    handleSortByChange(sortByOption) {
+        this.setState({sortBy: sortByOption});
+    };
+
+    handleTermChange(e) {
+        this.setState({term: e.target.value});
+    };
+
+    handleLocationChange(e) {
+        this.setState({location: e.target.value});
+    };
+
+    handleSearch(e) {
+        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+        e.preventDefault();
+    };
+
+    renderSortByOptions() {
+        return Object.keys(this.sortByOptions).map(sortByOption => {
+            let sortByOptionValue = this.sortByOptions[sortByOption];
+            return (<li className={this.getSortByClass(sortByOptionValue)}
+                key={sortByOptionValue}
+                onClick={() => this.handleSortByChange(sortByOptionValue)}>
+                {sortByOption}
+            </li>);
+        });
+    }
+
+    /* renderSortByOptions() {
+        return Object.keys(this.sortByOptions).map(sortByOption => {
+            let sortByOptionValue = this.sortByOptions[sortByOption];
+            return (<li className={this.getSortByClass(sortByOptionValue)}
+                key={sortByOptionValue}
+                onClick={this.handleSortByChange(sortByOptionValue)}>
+                {sortByOption}
+            </li>);
+        });
+    } */
+
     // the href is anchor is temporary workaround to stop errors
     render() {
         return (
@@ -31,11 +77,11 @@ class SearchBar extends React.Component {
                 </ul>
             </div>
             <div className="SearchBar-fields">
-                <input placeholder="Search Businesses" />
-                <input placeholder="Where?" />
+                <input onChange={this.handleTermChange} placeholder="Search Businesses" />
+                <input onChange={this.handleLocationChange} placeholder="Where?" />
             </div>
             <div className="SearchBar-submit">
-                <a href="https://github.com/Yelp/yelp-fusion/issues/399">Let's Go</a>
+                <button onClick={this.handleSearch}>Let's Go</button>
             </div>
         </div>
         );

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import BusinessList from '../BusinessList/BusinessList.js';
 import SearchBar from '../SearchBar/SearchBar.js';
+import { render } from '@testing-library/react';
 
 var businessPlaceholder = {
   imageSrc: 'https://ep1.pinkbike.org/files/logo/directory/11000/11019_original.jpg',
@@ -24,15 +25,23 @@ var businessArray = [
   businessPlaceholder
 ];
 
-function App() {
-  return (
-    <div className="App">
+
+class App extends React.Component {
+  searchYelp(term, location, sortBy) {
+    console.log(`Request for ${term}, ${location}, ${sortBy}`);
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,400;1,700&display=swap" rel="stylesheet"></link>
         <h1>Trekker</h1>
-    <SearchBar/>
-    {/* Call Yelp API to retrieve data and then pass into array*/}
-    <BusinessList businsses={businessArray}/>
-    </div>
-  );
+        <SearchBar searchYelp={this.searchYelp} />
+        {/* Call Yelp API to retrieve data and then pass into array*/}
+        <BusinessList businsses={businessArray} />
+      </div>
+    );
+  }
 }
 
 export default App;
