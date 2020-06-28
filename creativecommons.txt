@@ -7,3 +7,8 @@ Title: Search
 Author: Acharyas 
 Source: https://thenounproject.com/icon/3402459/
 License: https://creativecommons.org/licenses/by/3.0/
+
+Title: no pictures, Smashicons Hotel Services - Outline Collection
+Author: Ben Davis
+Source: https://thenounproject.com/search/?q=no%20pictures&i=649509
+License: https://creativecommons.org/licenses/by/3.0/

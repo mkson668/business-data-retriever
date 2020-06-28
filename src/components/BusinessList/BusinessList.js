@@ -8,9 +8,10 @@ class BusinessList extends React.Component {
             <div className="Business">
                 {/*prop of array of businesses called with map() to construct individual
                 Business components that further propagate data to Business class */}
-                {(this.props.businsses).map((business) => {
+                {(this.props.businesses).map((business) => {
                     return (
-                        <Business businessData={business}/>
+                        // note that list html items in React need a unique key for virtual DOM to work
+                        <Business businessData={business} key={business.id}/>
                     );
                 })}
             </div>

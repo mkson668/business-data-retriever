@@ -1,19 +1,6 @@
 import React from 'react';
 import './Business.css';
 
-// temporary place holder for all Business venues
-var businessPlaceholder = {
-    imageSrc: 'https://ep1.pinkbike.org/files/logo/directory/11000/11019_original.jpg',
-    name: 'Bicicletta',
-    address: '233 West Broadway',
-    city: 'Vancouver',
-    state: 'BC',
-    zipCode: 'V5Y 1P5',
-    category: 'Bike shop',
-    rating: 4.5,
-    reviewCount: 90
-};
-
 class Business extends React.Component {
     render() {
         return (

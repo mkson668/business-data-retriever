@@ -1,10 +1,11 @@
 .Business {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
+    position: relative;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 16.66rem;
-    margin: 0 .5rem 2.3rem .5rem;
+    margin: 0.5rem .5rem 2.3rem .5rem;
 }
 
 /* for all className with image-container under the parent className Business (Without comma is different from comma) */
@@ -16,11 +17,11 @@
 
 .image-wrapper {
     position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 1rem; 
 }
 
 .image-wrapper .image-in-wrapper {
-    position: absolute;
+    position: inherit;
     left: 0;
     top: 0;
     width: 100%;
